@@ -2,7 +2,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ['front']
+    branches: ['frontend']
   workflow_dispatch:
 
 permissions:
