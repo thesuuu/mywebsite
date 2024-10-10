@@ -64,13 +64,13 @@ const handleClose = (done: () => void) => {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 60vh;
         background-color: transparent;
     }
 
     .button-group {
         display: flex;
         justify-content: center;
-        gap: 1.5rem;
+        gap: 4rem;
     }
 </style>

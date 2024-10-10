@@ -18,7 +18,7 @@
 <style scoped>
 .el-header {
   padding: 0;  /* 移除默认内边距 */
-  background-color: #f5f7faa2;
+  background-color: #f5f7fa57;
 }
 
 .header-content {
@@ -53,6 +53,7 @@ h1 {
 
 .el-menu {
   min-width: 600px;
+  justify-content: flex-end; /* 右对齐 */
   border-bottom: none; /* 移除底部边框 */
   background-color: transparent;
 }
