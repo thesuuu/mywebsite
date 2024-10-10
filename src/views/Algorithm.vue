@@ -1,53 +1,68 @@
-<!-- Algorithm.vue -->
 <template>
     <div class="algorithm">
-      <h2>Choose an Algorithm</h2>
-      <div class="button-group">
-        <el-button type="primary" @click="openDialog('segmentation')">Segmentation</el-button>
-        <el-button type="primary" @click="openDialog('denoising')">Denoising</el-button>
-      </div>
-  
-      <el-dialog
+        <div class="button-group">
+            <AlgorithmButton 
+                v-for="algo in algorithms"
+                :key="algo.name"
+                :name="algo.name"
+                :icon="algo.icon"
+                @click="openDialog(algo.name.toLowerCase())"
+            />
+        </div>
+
+        <el-dialog
         v-model="dialogVisible"
-        :title="currentAlgorithm"
         width="80%"
         :before-close="handleClose"
-      >
+        >
         <component :is="currentComponent" @close="dialogVisible = false"></component>
-      </el-dialog>
+        </el-dialog>
     </div>
-  </template>
-  
-  
-  <script lang="ts" setup>
-  import { ref, shallowRef } from 'vue'
-  import Segmentation from './Segmentation.vue'
-  import Denoising from './Denoising.vue'
-  
-  const dialogVisible = ref(false)
-  const currentAlgorithm = ref('')
-  const currentComponent = shallowRef<typeof Segmentation | typeof Denoising | null>(null)
-  
-  const openDialog = (algorithm: 'segmentation' | 'denoising') => {
-    currentAlgorithm.value = algorithm.charAt(0).toUpperCase() + algorithm.slice(1)
-    currentComponent.value = algorithm === 'segmentation' ? Segmentation : Denoising
-    dialogVisible.value = true
+</template>
+
+<script setup lang="ts">
+import { ref, shallowRef } from 'vue';
+import { ElDialog } from 'element-plus';
+import AlgorithmButton, { Props as AlgorithmProps } from '../components/AlgorithmButton.vue';
+
+// 导入算法组件
+import SegmentationComponent from './Segmentation.vue';
+import DenoisingComponent from './Denoising.vue';
+
+const algorithms = ref<AlgorithmProps[]>([
+  { name: 'Segmentation', icon: 'segmentation' },
+  { name: 'Denoising', icon: 'denoising' },
+  // 此处添加算法
+]);
+
+const dialogVisible = ref(false);
+const currentComponent = shallowRef<any>(null);
+
+const openDialog = (algorithm: string): void => {
+  switch(algorithm) {
+    case 'segmentation':
+      currentComponent.value = SegmentationComponent;
+      break;
+    case 'denoising':
+      currentComponent.value = DenoisingComponent;
+      break;
+    default:
+      console.error(`Unknown algorithm: ${algorithm}`);
+      return;
   }
-  
-  const handleClose = (done: () => void) => {
-    done()
-  }
-  </script>
+  dialogVisible.value = true;
+};
+
+const handleClose = (done: () => void) => {
+  // 处理关闭逻辑，留空
+  done();
+};
+</script>
 
 <style scoped>
 .button-group {
   display: flex;
   justify-content: center;
   gap: 1rem;
-}
-
-.el-button {
-  font-size: 1.1rem;
-  padding: 12px 20px;
 }
 </style>

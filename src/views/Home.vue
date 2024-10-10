@@ -1,7 +1,7 @@
 <template>
     <div class="home">
       <div class="container">
-        <h1>Image Processing Web</h1>
+        <h1>Image Processing</h1>
         <p>Enhance your images with our advanced algorithms</p>
       </div>
     </div>
@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f5f7fa;
+    background-color: transparent;
   }
   
   .container {

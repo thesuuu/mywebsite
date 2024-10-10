@@ -30,11 +30,6 @@
 
         <!-- 错误消息显示 -->
         <ErrorMessage :message="errorMessage" />
-
-        <!-- 关闭按钮 -->
-        <el-button @click="handleClose" type="primary">
-            <el-icon><Close /></el-icon>
-        </el-button>
     </div>
 </template>
 
@@ -47,7 +42,6 @@ import ImagePreview from '../components/ImagePreview.vue'
 import DownloadButton from '../components/DownloadButton.vue'
 import LoadingOverlay from '../components/LoadingOverlay.vue'
 import ErrorMessage from '../components/ErrorMessage.vue'
-import { Close } from '@element-plus/icons-vue'
 
 const processedImageUrl = ref<string>('')
 const isLoading = ref<boolean>(false)
@@ -75,23 +69,9 @@ const handleFileUpload = async (file: File) => {  // 异步函数
         isLoading.value = false
     }
 }
-
-const handleClose = () =>{
-    emit('close')
-}
 </script>
 
 <style scoped>
-.Denoising {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
 .description{
     background-color: #f5f5f5;
     border: 1px solid #ddd;
