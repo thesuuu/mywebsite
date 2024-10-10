@@ -41,7 +41,7 @@ const iconClass = computed(() => `${icon}-icon`);
   width: 120px;
   height: 120px;
   border-radius: 18px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   background-size: cover;
 }
 
@@ -56,7 +56,7 @@ const iconClass = computed(() => `${icon}-icon`);
 }
 
 .algorithm-name {
-  color: white;
+  color: black;
   font-size: 20px;
 }
 </style>

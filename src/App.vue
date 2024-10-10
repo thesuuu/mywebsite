@@ -52,6 +52,7 @@ h1 {
 }
 
 .el-menu {
+  min-width: 600px;
   border-bottom: none; /* 移除底部边框 */
   background-color: transparent;
 }
