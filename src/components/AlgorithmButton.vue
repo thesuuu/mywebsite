@@ -8,18 +8,19 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-// 定义 Props 接口，显式地导出类型
-export interface Props {
-    name: string;
-    icon: string;
+// 定义 Props 接口，描述组件接收的属性类型（TypeScript）
+interface Props {
+  name: string;
+  icon: string;
 }
 
-const props = defineProps<Props>();
+// 传入TypeScript接口作为参数，返回一个对象，包含了所有定义的 props
+const { icon, name } = defineProps<Props>(); 
 
 // 创建一个计算属性 iconClass
 // 它根据传入的 icon prop 动态生成 CSS 类名
 // 例如，如果 icon prop 的值是 "segmentation"，那么生成的类名将是 "segmentation-icon"
-const iconClass = computed(()=> '${props.icon}-icon');
+const iconClass = computed(() => `${icon}-icon`);
 </script>
 
 

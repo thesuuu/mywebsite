@@ -23,13 +23,13 @@
 <script setup lang="ts">
 import { ref, shallowRef } from 'vue';
 import { ElDialog } from 'element-plus';
-import AlgorithmButton, { Props as AlgorithmProps } from '../components/AlgorithmButton.vue';
+import AlgorithmButton from '../components/AlgorithmButton.vue';
 
 // 导入算法组件
 import SegmentationComponent from './Segmentation.vue';
 import DenoisingComponent from './Denoising.vue';
 
-const algorithms = ref<AlgorithmProps[]>([
+const algorithms = ref([
   { name: 'Segmentation', icon: 'segmentation' },
   { name: 'Denoising', icon: 'denoising' },
   // 此处添加算法
