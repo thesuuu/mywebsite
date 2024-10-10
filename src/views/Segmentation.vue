@@ -30,6 +30,11 @@
 
         <!-- 错误消息显示 -->
         <ErrorMessage :message="errorMessage" />
+
+        <!-- 关闭按钮 -->
+        <el-button @click="handleClose" type="primary">
+            <el-icon><Close /></el-icon>
+        </el-button>
     </div>
 </template>
 
@@ -42,10 +47,12 @@ import ImagePreview from '../components/ImagePreview.vue'
 import DownloadButton from '../components/DownloadButton.vue'
 import LoadingOverlay from '../components/LoadingOverlay.vue'
 import ErrorMessage from '../components/ErrorMessage.vue'
+import { Close } from '@element-plus/icons-vue'
 
 const processedImageUrl = ref<string>('')
 const isLoading = ref<boolean>(false)
 const errorMessage = ref<string>('')
+const emit = defineEmits(['close'])
 
 const handleFileUpload = async (file: File) => {  // 异步函数
     const formData = new FormData()
@@ -61,6 +68,10 @@ const handleFileUpload = async (file: File) => {  // 异步函数
     } catch(error){
         console.error('Error processing image:', error)
     }
+}
+
+const handleClose = () => {
+    emit('close')
 }
 </script>
 

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from './views/Home.vue'
+import Algorithm from './views/Algorithm.vue'
 import Segmentation from './views/Segmentation.vue'
 import Denoising from './views/Denoising.vue'
 
@@ -8,6 +9,7 @@ import Denoising from './views/Denoising.vue'
 
 const routes = [
     {path: '/', component: Home},
+    {path: '/Algorithm', component: Algorithm },
     {path: '/Segmentation', component: Segmentation},
     {path: '/Denoising', component: Denoising},
 ]
