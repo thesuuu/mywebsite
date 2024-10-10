@@ -38,10 +38,10 @@ const iconClass = computed(() => `${icon}-icon`);
 }
 
 .icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 15px;
-  margin-bottom: 10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 18px;
+  margin-bottom: 14px;
   background-size: cover;
 }
 
@@ -56,7 +56,7 @@ const iconClass = computed(() => `${icon}-icon`);
 }
 
 .algorithm-name {
-  color: #000000;
-  font-size: 14px;
+  color: white;
+  font-size: 20px;
 }
 </style>

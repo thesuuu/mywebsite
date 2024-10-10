@@ -10,10 +10,6 @@ import Algorithm from './views/Algorithm.vue'
 const routes = [
     {
       path: '/',
-      redirect: '/home'  // 重定向到home
-    },
-    {
-      path: '/home',
       name: 'Home',
       component: Home
     },
@@ -23,11 +19,11 @@ const routes = [
       component: Algorithm
     }
   ]
-
-const router = createRouter({
-    history: createWebHistory(),
+  
+  const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
     routes,
-})
+  })
 
 // 将创建的路由器实例导出为默认导出
 // 在 Vue 应用的入口文件导入并使用这个路由器实例

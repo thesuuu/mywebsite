@@ -9,16 +9,16 @@
   
 <style scoped>
   .home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    display: flex; /*弹性盒模型*/
+    justify-content: center; /*在主轴上的对齐方式*/
+    align-items: center; /*在交叉轴上的对齐方式*/
+    height: 100vh; /*设置了容器的高度,1vh 等于视口高度的 1%*/
     background-color: transparent;
   }
   
   .container {
-    text-align: center;
-    padding: 2rem;
+    text-align: center; 
+    padding: 2rem; 
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);

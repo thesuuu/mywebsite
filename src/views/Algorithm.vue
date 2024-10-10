@@ -60,9 +60,18 @@ const handleClose = (done: () => void) => {
 </script>
 
 <style scoped>
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
+    .algorithm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px 0 greenyellow;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
 </style>
