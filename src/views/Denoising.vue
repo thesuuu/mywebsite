@@ -46,26 +46,26 @@ import ErrorMessage from '../components/ErrorMessage.vue'
 const processedImageUrl = ref<string>('')
 const isLoading = ref<boolean>(false)
 const errorMessage = ref<string>('')
-const emit = defineEmits(['close'])
 
 const handleFileUpload = async (file: File) => {  // 异步函数
     const formData = new FormData()
     formData.append('image', file)
+    formData.append('algrithm', 'denoising')
 
     isLoading.value = true
     errorMessage.value = ''
 
     try{
-        const response = await axios.post('', formData, {  // ngrok url
+        const response = await axios.post('https://06a8-210-75-253-166.ngrok-free.app/process', formData, {  // ngrok url
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         })
-        processedImageUrl.value = response.data.processedImageUrl
+        processedImageUrl.value = `data:image/png;base64,${response.data.processed_image}`
     } catch(error){
         console.error('Error processing image:', error)
-        errorMessage.value = 'Failed to process image. Please try again later.'
-    } finally{
+        errorMessage.value = 'An error occurred while processing the image.'
+    } finally {
         isLoading.value = false
     }
 }
@@ -82,7 +82,7 @@ const handleFileUpload = async (file: File) => {  // 异步函数
 
 .description h3 {
     margin-top: 0;
-    color: #333;
+    color: black;
 }
 
 .description p, .description ol {
