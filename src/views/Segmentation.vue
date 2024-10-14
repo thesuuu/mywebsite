@@ -56,7 +56,7 @@ const handleFileUpload = async (file: File) => {  // 异步函数
     errorMessage.value = ''
 
     try{
-        const response = await axios.post('https://dee7-223-104-77-165.ngrok-free.app/process', formData, {  // ngrok url
+        const response = await axios.post('https://db17-210-75-253-170.ngrok-free.app/process', formData, {  // ngrok url
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
